@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>User Info</h1>
+    <input type="text" id="name" name="name">
+    <input type="number" id="number" name="number">
+    <button id="save">Save</button>
+    <p id="output"></p>
+    <script>
+        const inputname=document.getElementById('name')
+        const inputage=document.getElementById('number')
+        const details=JSON.parse(localStorage.getItem('details'))||[]
+        const information=document.getElementById('output')
+        const btnsave=document.getElementById('save')
+        btnsave.addEventListener('click',(e)=>{
+            const info={
+                username:inputname.value,
+                userage:inputage.value
+            }
+            details.push('info')
+            localStorage.setItem('details',JSON.stringify(details))
+        })
+        information.innerHTML=details
+    </script>
+</body>
+</html>
